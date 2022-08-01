@@ -19,6 +19,7 @@ const (
 	seconds = 5
 )
 
+// 定义命令行参数对应的变量，这四个变量都是指针类型
 var (
 	rdx     = flag.String("redis", "localhost:6379", "the redis, default localhost:6379")
 	rdxKey  = flag.String("redisKey", "rate", "the redis key, default rate")
@@ -27,6 +28,7 @@ var (
 )
 
 func main() {
+	// 把用户传递的命令行参数解析为对应变量的值
 	flag.Parse()
 
 	store := redis.New(*rdx, redis.WithPass(*rdxPass))
